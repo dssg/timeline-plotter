@@ -94,21 +94,8 @@ def _configure_plot_aesthetics(
     df,
     x_value_range,
     y_value_range,
-    x_axis_margins,
-    y_axis_margins,
     custom_color_lookup,
 ):
-    # x -axis
-    ax.set_xlim(
-        df.start_date.min() - (x_value_range * x_axis_margins[0]),
-        df.end_date.max() + (x_value_range * x_axis_margins[1]),
-    )
-
-    # y-axis
-    ax.set_ylim(
-        df.y.min() - (y_value_range * y_axis_margins[0]),
-        df.y.max() + (y_value_range * y_axis_margins[1]),
-    )
     ax.tick_params(
         axis="both",
         left=False,
@@ -140,8 +127,6 @@ def plot_events_timelime(
     df,
     custom_color_lookup=None,
     event_text_vertical_alignment=None,
-    x_axis_margins=(0.05, 0.05),
-    y_axis_margins=(0.05, 0.05),
     **kwargs,
 ):
 
@@ -161,9 +146,7 @@ def plot_events_timelime(
         df,
         x_value_range,
         y_value_range,
-        x_axis_margins,
-        y_axis_margins,
-        event_text_vertical_alignment,
+        custom_color_lookup,
     )
 
     return ax
