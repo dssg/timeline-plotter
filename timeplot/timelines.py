@@ -1,7 +1,5 @@
-""" This file contains a class to plot event timelines for data exploration.
-    Initialize the class with some optional graphical settings. Then pass a
-    pandas.DataFrame, matplotlib.axes.Axes, and legend location (optional) to
-    run().
+""" Plot event timelines for data exploration. Pass a pandas.DataFrame and a
+    matplotlib.axes.Axes to plot_events_timelime().
 
     The DataFrame must have the following columns (with no missing data):
 
@@ -11,13 +9,7 @@
                     to determine line color (with the color_lookup) and will be
                     displayed in the legend; this could be, for example, the
                     data source or program type for the event
-      - y: the vertical axis position of the plotted line
-
-    Additionally, you may include the following column to add annotations to
-    the events:
-
-      - event_text: a string to print to the right of each event on the
-                    timeline; if you want nothing printed, send an empty string
+      - y: the vertical axis position of the plotted event
 """
 
 from matplotlib.lines import Line2D
@@ -33,7 +25,7 @@ DEFAULT_COLORS = [
     "#e7298a",
     "#66a61e",
     "#e6ab02",
-    "#a6761d",
+    "#a6760d",
     "#666666",
 ]
 
@@ -52,8 +44,6 @@ def _make_default_color_lookup(event_types):
 def _plot_lines(
     ax,
     df,
-    x_value_range,
-    y_value_range,
     custom_color_lookup,
     event_text_vertical_alignment,
     kwargs,
@@ -79,12 +69,6 @@ def _plot_lines(
         x = (row.start_date, row.end_date)
         y = (row.y, row.y)
         ax.plot(x, y, color=color_lookup[row.event_type], **kwargs)
-        if "event_text" in df:
-            ax.text(
-                row.end_date + (x_value_range / 60),
-                row.y + (y_value_range * event_text_vertical_alignment),
-                row.event_text,
-            )
 
     return ax
 
@@ -92,17 +76,16 @@ def _plot_lines(
 def _configure_plot_aesthetics(
     ax,
     df,
-    x_value_range,
-    y_value_range,
     custom_color_lookup,
+    show_y_axis,
 ):
     ax.tick_params(
         axis="both",
-        left=False,
+        left=show_y_axis,
         top=False,
         right=False,
         labeltop=False,
-        labelleft=False,
+        labelleft=show_y_axis,
         labelright=False,
     )
 
@@ -127,26 +110,20 @@ def plot_events_timelime(
     df,
     custom_color_lookup=None,
     event_text_vertical_alignment=None,
+    show_y_axis=False,
     **kwargs,
 ):
-
-    x_value_range = df.end_date.max() - df.start_date.min()
-    y_value_range = df.y.max() - df.y.min()
-
     ax = _configure_plot_aesthetics(
         _plot_lines(
             ax,
             df,
-            x_value_range,
-            y_value_range,
             custom_color_lookup,
             event_text_vertical_alignment,
             kwargs,
         ),
         df,
-        x_value_range,
-        y_value_range,
         custom_color_lookup,
+        show_y_axis,
     )
 
     return ax
