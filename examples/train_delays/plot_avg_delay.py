@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from matplotlib.lines import Line2D
 from timeplot import plot_events_timelime
 
 
@@ -26,7 +25,7 @@ def run():
     fig, axes = plt.subplots(4, sharex=True, sharey=True)
     for station, ax in zip(selected_stations, axes):
         station_df = delays_df.loc[delays_df["departure_station"] == station]
-        plot_events_timelime(ax, station_df, show_y_axis=True, marker="+")
+        plot_events_timelime(station_df, ax, show_y_axis=True, marker="+")
         ax.grid(axis="y")
         ax.set_title(station, loc="left")
     fig.tight_layout()

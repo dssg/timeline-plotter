@@ -44,7 +44,7 @@ def run():
             y=rng.integers(40, size=len(bookings_df.loc[bookings_df["agent"] == agent]))
         )
         plot_events_timelime(
-            ax, agent_df, custom_color_lookup=COLORS, markersize=2, linewidth=1
+            agent_df, ax, custom_color_lookup=COLORS, markersize=2, linewidth=1
         )
         ax.get_legend().remove()
         ax.set_title(f"Agent {int(agent)}", loc="left")

@@ -40,11 +40,11 @@ def run():
         axis=1,
     )
 
-    fig, ax = plt.subplots()
-    plot_events_timelime(ax, achievements_df, None, linewidth=1, markersize=1)
+    plot_events_timelime(achievements_df, linewidth=1, markersize=1)
 
-
-    fig.savefig("african_american_achievements_timeline.png", bbox_inches="tight", dpi=600)
+    plt.savefig(
+        "african_american_achievements_timeline.png", bbox_inches="tight", dpi=600
+    )
 
 
 if __name__ == "__main__":
