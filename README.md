@@ -27,8 +27,6 @@ only required argument is a pandas DataFrame (`df`) that has one row per event
 you would like to plot with the following columns:
 
   - `start_date`: the start date for the event
-  - `end_date`: the end date for the event (if your events do not have end
-    dates, set this equal to the `start_date`)
   - `event_type`: a categorical variable describing the event; will be used
         to determine line/marker color and will be displayed in the legend;
         this could be, for example, be the class someone is enrolling in for
@@ -38,6 +36,12 @@ you would like to plot with the following columns:
     [train delays example](examples/train_delays)); sometimes, it is simply
     useful separate multiple overlapping events (see the
     [hotel bookings example](examples/hotel_bookings))
+
+Events that have a duration (such as [hotel bookings](examples/hotelbookings)),
+can be plotted as lines with the length equal to the event duration by
+including another column:
+
+  - `end_date`: the end date for the event
 
 The function will return a `matplotlib.axes.Axes` object for display, aesthetic
 refinement and/or saving.

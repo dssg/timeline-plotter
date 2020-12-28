@@ -11,15 +11,18 @@ def run():
         delays_df[["year", "month"]].astype(str).agg("-".join, axis=1),
         format="%Y-%m",
     )
-    delays_df["end_date"] = delays_df["start_date"]
     delays_df.rename(
         columns={"arrival_station": "event_type", "avg_delay_all_departing": "y"},
         inplace=True,
     )
-    rng = np.random.default_rng(1)
+    rng = np.random.default_rng(7)
     station_indices = rng.integers(delays_df["departure_station"].nunique(), size=4)
     selected_stations = (
-        delays_df["departure_station"].value_counts().iloc[station_indices].index.values
+        delays_df["departure_station"]
+        .value_counts()
+        .sort_index()
+        .iloc[station_indices]
+        .index.values
     )
 
     fig, axes = plt.subplots(4, sharex=True, sharey=True)

@@ -8,7 +8,6 @@ def run():
     url = "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-06-09/firsts.csv"
     achievements_df = pd.read_csv(url)
     achievements_df["start_date"] = pd.to_datetime(achievements_df["year"], format="%Y")
-    achievements_df["end_date"] = pd.to_datetime(achievements_df["year"], format="%Y")
     achievements_df.rename(columns={"category": "event_type"}, inplace=True)
 
     # We'll plot each achievement category in a separate "band" on the y-axis.

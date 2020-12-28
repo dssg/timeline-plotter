@@ -94,8 +94,11 @@ def plot_events_timelime(
 
     # plot the lines and event text
     for row in df.itertuples():
-        x = (row.start_date, row.end_date)
-        y = (row.y, row.y)
+        if "end_date" in df:
+            x = [row.start_date, row.end_date]
+        else:
+            x = [row.start_date]
+        y = [row.y for date in x]
         ax.plot(x, y, color=color_lookup[row.event_type], **kwargs)
 
     ax.tick_params(
