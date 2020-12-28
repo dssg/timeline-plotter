@@ -1,7 +1,7 @@
 # Train Delays
 
 This example uses
-[data on delays for French train routes](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-06-09/readme.md).
+[data on delays for French train routes](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-02-26).
 The data are aggregated by train route and month and contain information about
 the departure station, arrival station, departure delay, arrival delay, the
 number of trips, and the distribution of delay causes, among other variables.

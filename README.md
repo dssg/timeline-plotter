@@ -37,7 +37,7 @@ you would like to plot with the following columns:
     be a meaniningful value associated with the event (see the
     [train delays example](examples/train_delays)); sometimes, it is simply
     useful separate multiple overlapping events (see the
-    [hotel bookings example](examples/hotel_bookings)
+    [hotel bookings example](examples/hotel_bookings))
 
 The function will return a `matplotlib.axes.Axes` object for display, aesthetic
 refinement and/or saving.

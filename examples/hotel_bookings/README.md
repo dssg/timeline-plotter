@@ -1,9 +1,9 @@
 # Hotel Bookings
 
 This example uses
-[data on hotel bookings](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-06-09/readme.md)
+[data on hotel bookings](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-02-11/readme.md)
 from
-[Antonio, de Almeida, & Nunes, 2019](https://www.sciencedirect.com/science/article/pii/S2352340918315191#f0010).
+[Antonio, de Almeida, & Nunes, 2019](https://www.sciencedirect.com/science/article/pii/S2352340918315191).
 The data show bookings at two hotels and include a number of features of the
 bookings, including when the stay is scheduled to start and end, which agent
 booked the hotel, and whether the guest kept the booking. Below, we explore the
