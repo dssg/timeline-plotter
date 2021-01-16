@@ -7,6 +7,6 @@ setuptools.setup(
     author="Erika Salomon",
     author_email="ecsalomon@gmail.com",
     packages=["timeplot"],
-    install_requires=["matplotlib"],
+    install_requires=["matplotlib", "pandas"],
     python_requires=">=3.8.6",
 )
