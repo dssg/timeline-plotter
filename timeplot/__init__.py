@@ -76,7 +76,7 @@ def _validate_dataframe(df):
     -------
     None
     """
-    if not all([name in df.columns for name in ["start_date", "event_type", "y"]]):
+    if not all(name in df.columns for name in ["start_date", "event_type", "y"]):
         raise KeyError(
             "The provided DataFrame is missing at least one of the required columns: start_date, event_type, y"
         )
