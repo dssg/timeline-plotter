@@ -82,7 +82,7 @@ def _validate_dataframe(df):
         )
     try:
         pandas.to_datetime(df["start_date"])
-    except:
+    except ValueError:
         raise TypeError("start_date not convertible to datetime")
     if "end_date" in df.columns:
         try:
