@@ -11,7 +11,7 @@ domains.
 
 In looking at this plot, one of the first things we can see is an increase in
 the density of achievements over time. However, we can also see some conspicuous
-gaps. For example, There are no achievements in either Sports or Education &
+gaps. For example, there are no achievements in either Sports or Education &
 Science from about 1930 through around 1950. This could suggest some historical
 change or that there are achievements missing from our data set. Indeed, if we
 look at the
