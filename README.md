@@ -37,7 +37,7 @@ you would like to plot with the following columns:
     useful separate multiple overlapping events (see the
     [hotel bookings example](examples/hotel_bookings))
 
-Events that have a duration (such as [hotel bookings](examples/hotelbookings)),
+Events that have a duration (such as [hotel bookings](examples/hotel_bookings)),
 can be plotted as lines with the length equal to the event duration by
 including another column:
 
